@@ -1,0 +1,12 @@
+* {
+    font-family: 'Patua One', cursive;
+}
+
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#game-container{
+    background-color: #ffffff;
+}
