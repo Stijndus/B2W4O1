@@ -1,5 +1,7 @@
 * {
     font-family: 'Patua One', cursive;
+    padding: 0px;
+    margin: 0px;
 }
 
 body{
@@ -7,6 +9,20 @@ body{
     background-size: cover;
 }
 
+button{
+    padding: 7px;
+}
+
 #game-container{
     background-color: #ffffff;
+    padding: 15px;
+    display: inline-block;
+    position: absolute;
+    left: 40%;
+    top: 25%;
+}
+
+#title{
+    position: relative;
+    left: 25%;
 }

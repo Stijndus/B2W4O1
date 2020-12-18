@@ -1,5 +1,6 @@
 const titles = document.getElementById('title');
 const desc = document.getElementById('description');
+const actions = document.getElementById('actions')
 const inv = document.getElementById('inventoryItem');
 const gameBtns = document.getElementById('game-buttons');
 const bg = document.getElementById('background');
@@ -25,6 +26,7 @@ function initLevel(level) {
 	titles.innerHTML = level.title;
 	desc.innerHTML = level.description;
 	bg.style.backgroundImage = level.background;
+	actions.innerHTML = '';
 	buttons(level.buttons);
 }
 

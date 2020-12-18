@@ -2,7 +2,7 @@ var weapon = false;
 
 var levels = [{
 		'id':0,
-		'title': 'Level 0',
+		'title': 'Level 1',
 		'description': 'After 10 years of being stuck inside of a bunker.<br>You decide to go outside<br>What will you do?',
 		'background': "url('img/bg.jpg')",
 		'buttons': [{
@@ -12,10 +12,10 @@ var levels = [{
 				'function': function () {
 					let random = Math.floor(Math.random() * 2);
 					if(random === 1){
-						alert('You\'ve found some food');
+						actions.innerHTML =('<br>You have found some food');
 						enablebtn('nextLevel', true);
 					} else {
-						desc.innerHTML +=('<br>You did\'nt find some food \nTry again!');
+						actions.innerHTML +=('<br>You did\'nt find some food \nTry again!');
 					}
 				}
 			},
@@ -27,10 +27,11 @@ var levels = [{
 					let random = Math.floor(Math.random() * 2);
 					if(random === 1){
 						enablebtn('nextLevel', true);
+						enablebtn('findWeapon', false);
 						weapon = true;
-						desc.innerHTML +='weapon';
+						actions.innerHTML ='<br>You\'ve found a weapon';
 					} else {
-						desc.innerHTML += '<br>You haven\'t found a weapon';
+						actions.innerHTML += '<br>You haven\'t found a weapon';
 					}
 				}
 			},
@@ -38,7 +39,7 @@ var levels = [{
 				'id': 'nextLevel',
 				'text': 'Go outside',
 				'function':function() {
-					game(400)
+					game(1)
 				},
 				'enabled': false,
 			}
@@ -46,15 +47,19 @@ var levels = [{
 	},
 	{
 		'id': 1,
-		'title': 'Level 1',
+		'title': 'Level 2',
+		'background': "url('img/cockroach.jpg')",
 		'description': 'For the first time in 10 years you see real sunlight!<br>Once your eyes have adjusted you spot a giant mutated cockroach',
 		'buttons': [{
 				'id': 'fight',
 				'text': 'Fight',
+				'enabled': true,
 				'function': function () {
 					if(weapon === true){
 						alert('You won the fight');
-						levels[1].buttons[2].disable = false;
+						enablebtn('nextLevel', true);
+						enablebtn('fight', false)
+						;
 					} else {
 						alert('You lost the fight');
 					}
@@ -63,12 +68,11 @@ var levels = [{
 			{	
 				'id': 'run',
 				'text': 'Run',
+				'enabled': true,
 				'function': function () {
 					let random = Math.floor(Math.random() * 2);
 					if(random === 1){
 						alert('You succesfully ran away from this confrontation');
-						levels[1].buttons[2].disable = false;
-						levels[2].buttons[0].disable = true;
 						levels[2].buttons[0].text = '';
 					} else {
 						alert('The cockroach spotted you and mauled you to death');
@@ -77,32 +81,42 @@ var levels = [{
 			}, {
 				'id': 'nextLevel',
 				'text': 'Next Level',
-				'function': function name(params) {
-					
+				'function': function() {
+					game(2)
 				}
 			}
 		]
 	},
 	{
-		'title': '2',
-		'description': 'PlaceHolder',
+		'id':2,
+		'title': '',
+		'description': '',
+		'background': "url('g')",
 		'buttons': [{
+				'id': '',
 				'text': '',
-				'function': function (chance) {
+				'enabled': true,
+				'function': function () {
 					
-				},
-				'disable': false,
+				}
 			},
 			{
-				'text': 'Explore',
-
-				
+				'id': '',
+				'text': '',
+				'enabled': true,
+				'function': function () {
+					let random = Math.floor(Math.random() * 2);
+					
+				}
 			},
 			{
+				'id': 'nextLevel',
 				'text': 'Next Level',
-				'gotolevel': 0,
-				'disable': true,
-			},
+				'function':function() {
+					game()
+				},
+				'enabled': false,
+			}
 		]
-	}
+	},
 ]
