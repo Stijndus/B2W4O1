@@ -22,6 +22,16 @@ button{
     top: 25%;
 }
 
+#inventoryItem{
+    background-color:#ffffff;
+    padding: 15px;
+    display: inline-block;
+}
+
+#inventoryItem img{
+    width: 80px;
+}
+
 #title{
     position: relative;
     left: 25%;

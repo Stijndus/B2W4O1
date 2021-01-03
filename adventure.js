@@ -45,6 +45,18 @@ function buttons(buttons) {
 	}
 }
 
+function inventory(src, id) {
+	let createinv = document.createElement('img');
+	createinv.id = id;
+	createinv.src = src;
+	inv.appendChild(createinv);
+}
+
+function removeinv(id) {
+	let removeinv = document.getElementById(id);
+	removeinv.remove();
+}
+
 function enablebtn(id, state) {
 	document.getElementById(id).disabled = !state;
 }
